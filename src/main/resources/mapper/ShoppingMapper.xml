@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjj.yjjshopping.mapper.ShoppingMapper">
+
+    <resultMap id="BaseResultMap" type="com.yjj.yjjshopping.pojo.Shopping">
+            <id property="sid" column="sid" jdbcType="INTEGER"/>
+            <result property="sname" column="sname" jdbcType="VARCHAR"/>
+            <result property="sdescribe" column="sdescribe" jdbcType="VARCHAR"/>
+            <result property="soriginalprice" column="soriginalprice" jdbcType="DOUBLE"/>
+            <result property="scurrentprice" column="scurrentprice" jdbcType="DOUBLE"/>
+            <result property="sremain" column="sremain" jdbcType="INTEGER"/>
+            <result property="sphoto" column="sphoto" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        sid,sname,sdescribe,
+        soriginalprice,scurrentprice,sremain,
+        sphoto
+    </sql>
+    <insert id="insertShoppingIntoShopCart">
+        insert into shopcart values(#{uid},#{sid})
+    </insert>
+</mapper>

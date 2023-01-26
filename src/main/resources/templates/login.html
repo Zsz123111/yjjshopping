@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>请登录</title>
+	<link rel="stylesheet" href="/css/win.css">
+</head>
+<body>
+    <div class="jb_shopping_top" >
+	   <div class="jb_shopping_topa">
+	      <div class="jb_shopping_topb">
+	    hi,欢迎您的到来！
+		<a th:href="@{login}">登录</a> |
+		<a href="#">注册</a> |
+		<a href="#">会员中心</a> |
+		<a href="#">客服服务</a>
+		   </div>
+		</div>
+	</div>
+	<div class="jb_shopping_logo">
+			<img src="/images/order_a.jpg" height="82" width="83" alt="">
+	</div>
+	<div class="jb_login">
+		<div class="jb_log_lt">
+			<img src="/images/jb_yyzx.jpg" alt="预约">
+		</div>
+		<div class="jb_log_rt">
+			<div class="jb_lg_top">
+				<span>登录</span><font color="red" th:text="${error}"></font>
+				<form action="log" method="post">
+					<div class="jb_lg_int">
+						<input type="text" id="jb_text" name="username">
+					</div>
+					<div class="jb_lg_inb">
+						<input type="password" id="jb_password" name="userpassword">
+					</div>
+					<span class="jb_lg_tpicon"></span>
+					<span class="jb_lg_tpicona"></span>
+					<span class="jb_lg_tpiconb"></span>
+					<div class="jb_lg_zddl">
+						<h1 class="jb_log_zda">忘记密码？</h1>
+					</div>
+					<input type="submit" class="jb_lg_btn" id="jb_btn">登录</input>
+				</form>
+			</div>
+		  <div class="jb_zh_dl">
+		  	<span style='margin-left:15px;' class='jb_zh_xxk'></span>
+		  	<span class="jb_sy_wz">使用合作网站账号登录</span>
+		  	<span class='jb_zh_xxk'></span>
+		  </div>
+		  <div class="jb_zh_dlicon">
+		  	    <span class="jb_lg_tpiconc"></span>
+ 				<span class="jb_lg_tpicond"></span>
+ 				<span class="jb_lg_tpicone"></span>
+ 				<span class="jb_lg_tpiconf"></span>
+ 				<span class="jb_lg_tpicong"></span>
+ 				<span class="jb_lg_tpiconh"></span>
+		  </div>
+		  	
+		</div>
+	</div>
+</body>
+</html>

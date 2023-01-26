@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjj.yjjshopping.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.yjj.yjjshopping.pojo.User">
+            <id property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="userpassword" column="userpassword" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        uid,username,userpassword
+    </sql>
+    <resultMap id="shopCartMapper" type="com.yjj.yjjshopping.pojo.User">
+        <id property="uid" column="uid"></id>
+        <result property="username" column="username"></result>
+        <result property="userpassword" column="userpassword"></result>
+        <collection property="shopcart" column="sid" ofType="com.yjj.yjjshopping.pojo.Shopping">
+            <id column="sid" property="sid"></id>
+            <result column="sname" property="sname"></result>
+            <result column="scurrentprice" property="scurrentprice"></result>
+            <result column="sdescribe" property="sdescribe"></result>
+            <result column="soriginalprice" property="soriginalprice"></result>
+            <result column="sphoto" property="sphoto"></result>
+            <result column="sremain" property="sremain"></result>
+        </collection>
+    </resultMap>
+    <select id="findUsersShopCartByUsername" parameterType="string" resultMap="shopCartMapper">
+        select *
+        from user
+        left join shopcart
+        on user.uid = shopcart.uid
+        left join shopping
+        on shopcart.sid = shopping.sid
+        where user.username = #{username}
+    </select>
+
+</mapper>

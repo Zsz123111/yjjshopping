@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th:="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/win.css">
+</head>
+<body>
+	<div class="jb_shopping_top" >
+	   <div class="jb_shopping_topa">
+	      <div class="jb_shopping_topb">
+	    hi,欢迎您的到来！
+		<a href="登录.html">登录</a> |
+		<a href="注册/注册.html">注册</a> |
+		<a href="会员中心主页.html">会员中心</a> |
+		<a href="">客服服务</a>
+		   </div>
+		</div>
+	</div>
+	<div class="jb_shopping_logo">
+			<img src="images/order_a.jpg" height="82" width="83" alt="">
+	</div>
+	<div class="jb_shopping_middle">
+		<div class="jb_sp_top">
+			<img src="images/shoping_a.jpg" alt="">
+			<span >我的购物车</span>
+		</div>
+		<div class="jb_sop_tit">
+			<div class="jb_sop_word">
+				<span class="jb_sop_word_a">商品</span>
+				<span class='jb_sop_word_b'>单价</span>
+				<span class='jb_sop_word_c'>优惠</span>
+				<span class='jb_sop_word_f'>小计</span>
+				<span class='jb_sop_word_g'>操作</span>
+			</div>
+		</div>
+		<div th:each="s:${us}" class="jb_sop_jst">
+			<input class='jb_sop_jsta'type="checkbox">
+			<img  class='jb_sop_jstb'th:src="@{${s.sphoto}}" height="67" width="41" alt="">
+			<span class='jb_sop_jstc' th:text="${s.sdescribe}">金龙鱼盘锦大米5kg</span>
+			<p class="jb_sop_jstd">现价：<span class='jb_sop_jste' th:text="${s.scurrentprice}">￥38.50</span></p>
+			<span class='jb_sop_jstf' th:text="${s.soriginalprice}-${s.scurrentprice}">---</span>
+			<span class='jb_sop_jstge' th:text="${s.scurrentprice}">￥38.5</span>
+			<p class="jb_sop_jstgf">收藏</p>
+			<p class="jb_sop_jstgg">删除</p>
+		</div>
+	    <div class="jb_all_qx">
+	    </div>
+	    <div class="jb_payment">
+	    </div>
+	    <div class="jb_conshop">
+	    	<button class="jb_conshop_lt" id="btn">
+	    		<img class='jb_conshop_lta'src="images/payment_a.jpg" height="21" width="13" alt="">
+	    		<a href="index.html"style="color:#ce1018"><span class='jb_conshop_ltb'>继续购物</span></a>
+	    	</button>
+	    </div>
+	    <div class="jb_settlement">
+	    	<button class="jb_settlement_a">
+	    		<a href="结算中心.html"><span class='jb_settlement_b'>￥去结算</span></a>
+	    		<img  class='jb_settlement_c'src="images/payment_b.jpg" height="20" width="13" alt="">
+	    	</button>
+	    </div>
+	</div>
+</body>
+</html>
